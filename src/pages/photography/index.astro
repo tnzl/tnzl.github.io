@@ -5,22 +5,76 @@ import { photos } from '../../data/site';
 
 <BaseLayout title="Photography" description="Photography by Tanzeel Ur Rahman.">
   <h1 class="page-title">Photography</h1>
-  <p class="page-lead">Selected frames.</p>
+  <p class="page-lead">Selected frames. Click a photo to view full size.</p>
 
   <div class="photo-grid">
     {
       photos.map((photo) => (
         <figure class="photo-item">
-          <img
-            src={photo.src}
-            alt={photo.alt}
-            loading="lazy"
-            width="1134"
-            height="2016"
-          />
+          <button
+            type="button"
+            class="photo-thumb"
+            data-full={photo.full}
+            data-alt={photo.alt}
+            aria-label={`View full size: ${photo.alt}`}
+          >
+            <img
+              src={photo.thumb}
+              alt={photo.alt}
+              loading="lazy"
+              width="270"
+              height="480"
+            />
+          </button>
           {photo.caption ? <figcaption>{photo.caption}</figcaption> : null}
         </figure>
       ))
     }
   </div>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-backdrop" aria-label="Close photo"></button>
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Full size photo">
+      <button type="button" class="lightbox-close" aria-label="Close">×</button>
+      <img class="lightbox-image" alt="" />
+    </div>
+  </div>
 </BaseLayout>
+
+<script>
+  const lightbox = document.querySelector('#lightbox');
+  const lightboxImage = document.querySelector('.lightbox-image');
+  const closeButtons = document.querySelectorAll('.lightbox-backdrop, .lightbox-close');
+
+  function openLightbox(full: string, alt: string) {
+    if (!(lightbox instanceof HTMLElement) || !(lightboxImage instanceof HTMLImageElement)) return;
+    lightboxImage.src = full;
+    lightboxImage.alt = alt;
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!(lightbox instanceof HTMLElement) || !(lightboxImage instanceof HTMLImageElement)) return;
+    lightbox.hidden = true;
+    lightboxImage.removeAttribute('src');
+    lightboxImage.alt = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.photo-thumb').forEach((button) => {
+    button.addEventListener('click', () => {
+      const full = button.getAttribute('data-full');
+      const alt = button.getAttribute('data-alt') ?? '';
+      if (full) openLightbox(full, alt);
+    });
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', closeLightbox);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeLightbox();
+  });
+</script>

@@ -18,7 +18,8 @@ export const nav = [
 
 export const photos = [
   {
-    src: '/photography/pxl-20260531.jpg',
+    thumb: '/photography/pxl-20260531-thumb.jpg',
+    full: '/photography/pxl-20260531.jpg',
     alt: 'Photograph by Tanzeel Ur Rahman',
     caption: '',
   },

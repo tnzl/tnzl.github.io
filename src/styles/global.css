@@ -455,27 +455,97 @@ p {
 /* Photography */
 .photo-grid {
   display: grid;
-  grid-template-columns: minmax(0, 28rem);
+  grid-template-columns: repeat(auto-fill, minmax(140px, 180px));
   justify-content: start;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .photo-item {
   margin: 0;
 }
 
-.photo-item img {
+.photo-thumb {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  color: inherit;
+}
+
+.photo-thumb img {
   width: 100%;
   aspect-ratio: 9 / 16;
   object-fit: cover;
   object-position: center;
   animation: fade-in 0.8s ease both;
+  transition: opacity 0.2s ease;
+}
+
+.photo-thumb:hover img {
+  opacity: 0.85;
 }
 
 .photo-item figcaption {
   margin-top: 0.5rem;
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.82);
+  cursor: pointer;
+}
+
+.lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  max-width: min(92vw, 1100px);
+  max-height: 92vh;
+}
+
+.lightbox-image {
+  display: block;
+  max-width: 92vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -2.4rem;
+  right: 0;
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+}
+
+.lightbox-close:hover {
+  opacity: 0.7;
 }
 
 .demo-note {
