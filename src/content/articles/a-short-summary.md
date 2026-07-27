@@ -13,7 +13,6 @@ I am **Tanzeel Ur Rahman**. I work as an AI software engineer at AMD, and I stud
 
 - **Articles** — occasional writing
 - **Projects** — selected public repositories
-- **Notes** — short notes and snippets
 - **Photography** — frames I like enough to keep
 
 If you want to reach me: [GitHub](https://github.com/tnzl), [LinkedIn](https://www.linkedin.com/in/tnzl), or email `iamtanzeel1998@gmail.com`.

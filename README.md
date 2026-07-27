@@ -7,7 +7,6 @@ Personal site for **Tanzeel Ur Rahman** — Astro static site deployed to GitHub
 - `/` — Landing (intro, circular portrait, GitHub / LinkedIn / email)
 - `/articles` — Markdown articles
 - `/projects` — Project write-ups
-- `/notes` — Short Markdown notes
 - `/photography` — Image gallery
 
 Site mark: T-Rex logo in the header (links home).
@@ -41,7 +40,6 @@ Site URL: `https://tnzl.github.io`
 |------|--------|
 | Portrait | `public/portrait.jpg` (your photo). Replace anytime with a new square-ish JPEG. |
 | Articles | `src/content/articles/*.md` |
-| Notes | `src/content/notes/*.md` |
 | Projects | `src/content/projects/*.md` |
 | Photos | `public/photography/*.jpg` + list in `src/data/site.ts` |
 | Bio / links | `src/data/site.ts` |
