@@ -1,0 +1,44 @@
+---
+import TrexLogo from './TrexLogo.astro';
+import { nav, site } from '../data/site';
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo-link" href="/" aria-label={`${site.name} home`}>
+      <TrexLogo />
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      Menu
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="Primary">
+      {
+        nav.map((item) => {
+          const current =
+            pathname === item.href || pathname.startsWith(item.href)
+              ? 'page'
+              : undefined;
+          return (
+            <a href={item.href} aria-current={current}>
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('#site-nav');
+
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>

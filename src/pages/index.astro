@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout description={site.bio}>
+  <section class="hero">
+    <img
+      class="portrait"
+      src="/portrait.jpg"
+      alt={`Portrait of ${site.name}`}
+      width="440"
+      height="440"
+    />
+    <div class="hero-copy">
+      <h1>{site.name}</h1>
+      <p class="headline">{site.headline}</p>
+      <p class="bio">{site.bio}</p>
+      <p class="subline muted">{site.subline}</p>
+      <div class="hero-social">
+        <SocialLinks />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

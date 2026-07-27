@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projects = (await getCollection('projects'))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Projects" description="Selected projects by Tanzeel Ur Rahman.">
+  <h1 class="page-title">Projects</h1>
+  <p class="page-lead">Selected public repositories from GitHub.</p>
+
+  <ul class="content-list">
+    {
+      projects.map((project) => (
+        <li>
+          <a href={`/projects/${project.id}/`}>
+            <h2 class="item-title">{project.data.title}</h2>
+            <p class="item-desc">{project.data.description}</p>
+            {project.data.tags.length > 0 && (
+              <div class="tag-row">
+                {project.data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

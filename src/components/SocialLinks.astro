@@ -1,0 +1,61 @@
+---
+import { site } from '../data/site';
+
+const links = [
+  {
+    href: site.github,
+    label: 'GitHub',
+    external: true,
+  },
+  {
+    href: site.linkedin,
+    label: 'LinkedIn',
+    external: true,
+  },
+  {
+    href: `mailto:${site.email}`,
+    label: 'Email',
+    external: false,
+  },
+] as const;
+---
+
+<ul class="social-links">
+  {
+    links.map((link) => (
+      <li>
+        <a
+          href={link.href}
+          aria-label={link.label}
+          title={link.label}
+          {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >
+          {link.label === 'GitHub' && (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05A9.3 9.3 0 0 1 12 6.9c.85 0 1.71.12 2.51.34 1.9-1.32 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .26.18.58.69.48A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"
+              />
+            </svg>
+          )}
+          {link.label === 'LinkedIn' && (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.52V24H.24V8.25zM8.34 8.25h4.33v2.14h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.93V24h-4.52v-6.86c0-1.64-.03-3.74-2.28-3.74-2.28 0-2.63 1.78-2.63 3.62V24H8.34V8.25z"
+              />
+            </svg>
+          )}
+          {link.label === 'Email' && (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.5-.5a.5.5 0 0 0-.5.5v.3l8 5.2 8-5.2V5.5a.5.5 0 0 0-.5-.5h-15Zm15.5 3.45-7.66 4.98a.75.75 0 0 1-.84 0L4 8.45V18.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V8.45Z"
+              />
+            </svg>
+          )}
+        </a>
+      </li>
+    ))
+  }
+</ul>
