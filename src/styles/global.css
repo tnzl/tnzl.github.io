@@ -325,22 +325,30 @@ p {
 
 .name-block {
   display: inline-block;
-  width: fit-content;
   max-width: 100%;
+  margin-bottom: 1.1rem;
 }
 
 .name-block h1 {
-  margin-bottom: 0.15rem;
+  margin-bottom: 0;
 }
 
 .name-urdu {
+  float: right;
+  clear: both;
   font-family: 'Arslan Wessam B', serif;
   font-size: clamp(1.85rem, 3.5vw, 2.6rem);
   line-height: 1.4;
-  margin: 0 0 1.1rem;
+  margin: 0.2rem 0 0;
   font-weight: 400;
-  text-align: right;
   direction: rtl;
+  white-space: nowrap;
+}
+
+.name-block::after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 .construction-banner {
