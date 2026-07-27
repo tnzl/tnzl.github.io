@@ -1,32 +1,19 @@
 ---
 title: "A short summary"
-description: "Who I am, what I work on, and what this site is for."
+description: "A brief intro — and a note that this website is under construction."
 pubDate: 2026-07-25
 draft: false
 ---
 
-I am **Tanzeel Ur Rahman**, a Senior AI Software Engineer at AMD (AI Products Group). I work on ML compilers and low-latency inference — taking large language models from training graphs to production hardware.
+This website is **under construction**. I’m still putting pages, writing, and photos in place — expect things to change.
 
-## What I do
-
-My day-to-day sits at the intersection of **model architecture**, **quantization**, and **compiler lowering**:
-
-- Building and extending an **MLIR-based ML compiler** for AMD NPU/CPU backends
-- Enabling transformer models (Qwen, Llama, Phi, and related families) for efficient inference
-- Optimizing attention paths (MHA / GQA / MQA), KV-cache layout, and quantized operators
-- Profiling memory movement and op latency to find where real speedups live
-
-I care about the full deployment lifecycle: graph import, IR transforms, kernels, and the numbers that show up at the end of a token stream.
-
-## Background
-
-I studied at **BITS Pilani** (BE Electronics & Instrumentation and MS Mathematics, dual degree). Before and alongside industry work I have built systems for online exam proctoring, fake-news classification, DenseNet / detection experiments, and a from-scratch CPU LLM inference engine.
+I am **Tanzeel Ur Rahman**. I work as an AI software engineer at AMD, and I studied at BITS Pilani. Away from work I love **badminton** and **board games** — evenings on the court or around a table are how I recharge.
 
 ## This site
 
-- **Articles** — longer write-ups
+- **Articles** — occasional writing
 - **Projects** — selected public repositories
-- **Notes** — short cheat sheets and glossary stubs
+- **Notes** — short notes and snippets
 - **Photography** — frames I like enough to keep
 
 If you want to reach me: [GitHub](https://github.com/tnzl), [LinkedIn](https://www.linkedin.com/in/tnzl), or email `iamtanzeel1998@gmail.com`.

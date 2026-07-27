@@ -315,6 +315,13 @@ p {
   letter-spacing: -0.01em;
 }
 
+.construction-banner {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .hero-copy .bio {
   max-width: 36rem;
   margin-bottom: 1rem;
@@ -448,7 +455,8 @@ p {
 /* Photography */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: minmax(0, 28rem);
+  justify-content: start;
   gap: 1.25rem;
 }
 
@@ -458,9 +466,9 @@ p {
 
 .photo-item img {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center;
   animation: fade-in 0.8s ease both;
 }
 

@@ -5,14 +5,20 @@ import { photos } from '../../data/site';
 
 <BaseLayout title="Photography" description="Photography by Tanzeel Ur Rahman.">
   <h1 class="page-title">Photography</h1>
-  <p class="page-lead">A few frames.</p>
+  <p class="page-lead">Selected frames.</p>
 
   <div class="photo-grid">
     {
       photos.map((photo) => (
         <figure class="photo-item">
-          <img src={photo.src} alt={photo.alt} loading="lazy" width="800" height="1000" />
-          <figcaption>{photo.caption}</figcaption>
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            loading="lazy"
+            width="1134"
+            height="2016"
+          />
+          {photo.caption ? <figcaption>{photo.caption}</figcaption> : null}
         </figure>
       ))
     }
